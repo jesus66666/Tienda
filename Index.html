@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 70px; /* Ajuste para evitar que el buscador cubra contenido */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Barra de búsqueda fija en la parte superior */
+        .search-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            padding: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Estilos para el input de búsqueda */
+        .search-bar input {
+            width: 90%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Contenedor de cada producto */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para el logo de la tienda en la parte superior derecha */
+        .store-logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Posición del icono de WhatsApp debajo del logo */
+        .whatsapp {
+            position: absolute;
+            top: 55px;
+            right: 10px;
+        }
+
+        /* Estilo del icono de WhatsApp */
+        .whatsapp img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Estilos para la imagen del producto */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Margen superior para la descripción del producto */
+        .description {
+            margin-top: 15px;
+        }
+
+        /* Ajustes para pantallas grandes */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+            }
+        }
+    </style>
+</head>
+<body onload="scrollToProduct()">
+
+    <!-- Barra de búsqueda fija -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Buscar productos...">
+    </div>
+
+    <!-- Contenedor del producto: Ropa -->
+    <div class="container" id="producto-ropa" data-keywords="ropa, prendas de vestir, camisetas, chamarras">
+        <!-- Logo de la tienda -->
+        <img class="store-logo" src="ripa.png" alt="Tienda 1">
+        <!-- Botón de WhatsApp -->
+        <div class="whatsapp">
+            <a href="#" onclick="sendWhatsApp('6355923802', 'ropa', 'Ropa de alta calidad')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+        </div>
+        <!-- Imagen del producto -->
+        <img src="ropa.jpg" alt="Ropa">
+        <!-- Descripción del producto -->
+        <div class="description">
+            Ropa de alta calidad, disponible en varias tallas.
+        </div>
+    </div>
+
+    <!-- Contenedor del producto: Martillo -->
+    <div class="container" id="producto-martillo" data-keywords="casa sergio, martillo, herramientas, construcción">
+        <!-- Logo de la tienda -->
+        <img class="store-logo" src="casasergio.png" alt="Tienda 2">
+        <!-- Botón de WhatsApp -->
+        <div class="whatsapp">
+            <a href="#" onclick="sendWhatsApp('6355923802', 'martillo', 'Martillo resistente para construcción')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+        </div>
+        <!-- Imagen del producto -->
+        <img src="martillo.jpg" alt="Martillo">
+        <!-- Descripción del producto -->
+        <div class="description">
+            Martillo resistente para trabajos de construcción.
+        </div>
+    </div>
+
+        <!-- Contenedor del producto: comida -->
+    <div class="container" id="producto-comida" data-keywords="
+    restaurantes, Platillos, cena, Almuersos, comida, desallunos, merienda, gurmet, rico pollo">
+        <!-- Logo de la tienda -->
+        <img class="store-logo" src="comida.jpg" alt="Tienda 2">
+        <!-- Botón de WhatsApp -->
+        <div class="whatsapp">
+            <a href="#" onclick="sendWhatsApp('6355923802', 'martillo', 'Martillo resistente para construcción')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+        </div>
+        <!-- Imagen del producto -->
+        <img src="comida.jpg" alt="Martillo">
+        <!-- Descripción del producto -->
+        <div class="description">
+            Ricos platillos para disfrutar.
+        </div>
+    </div>
+
+            <!-- Contenedor del producto: polo el cranchero -->
+    <div class="container" id="producto-sombrero" data-keywords="
+    sombrero, rodeo, aditamentos para caballero, caballos, rodeo, charros, jinetes, hombre, regalos, caballeros">
+        <!-- Logo de la tienda -->
+        <img class="store-logo" src="rodeo.jpg" alt="Tienda 3">
+        <!-- Botón de WhatsApp -->
+        <div class="whatsapp">
+            <a href="#" onclick="sendWhatsApp('6355923802', 'sombrero', 'Sombrero de alta calidad para caballero')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+        </div>
+        <!-- Imagen del producto -->
+        <img src="sombrero.jpg" alt="Sombrero">
+        <!-- Descripción del producto -->
+        <div class="description">
+            Hermoso sombrero para presumir a caballo.
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Función para enviar un mensaje de WhatsApp con un enlace al producto específico.
+         * @param {string} phone - Número de WhatsApp de la tienda
+         * @param {string} productId - ID del producto
+         * @param {string} description - Descripción del producto
+         */
+        function sendWhatsApp(phone, productId, description) {
+            let currentUrl = window.location.href.split('#')[0]; // Obtener la URL base sin fragmentos
+            let productUrl = `${currentUrl}#producto-${productId}`; // Construir URL con ID del producto
+            let message = encodeURIComponent(`Hola, estoy interesado en este producto: ${description}\n\nMira aquí: ${productUrl}`);
+            let url = `https://wa.me/${phone}?text=${message}`;
+            window.open(url, '_blank'); // Abrir WhatsApp en una nueva pestaña
+        }
+
+        /**
+         * Función que detecta si la URL contiene un fragmento (#producto-...) y desplaza la vista al producto.
+         */
+        function scrollToProduct() {
+            let hash = window.location.hash; // Obtener el fragmento de la URL
+            if (hash) {
+                let element = document.querySelector(hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: "smooth" }); // Desplazamiento suave al producto
+                    }, 500);
+                }
+            }
+        }
+
+        /**
+         * Función para filtrar productos en función de la búsqueda.
+         */
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let searchValue = this.value.toLowerCase();
+            let products = document.querySelectorAll('.container');
+
+            products.forEach(product => {
+                let keywords = product.getAttribute('data-keywords'); // Obtener palabras clave del producto
+                if (keywords.toLowerCase().includes(searchValue) || searchValue === '') {
+                    product.style.display = "flex"; // Mostrar producto si coincide
+                } else {
+                    product.style.display = "none"; // Ocultar producto si no coincide
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
